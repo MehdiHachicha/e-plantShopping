@@ -97,6 +97,13 @@ body {
     height: 200px; /* Adjust height for better consistency */
 }
 
+.category {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
 .product-button {
     background-color: #e74c3c;
     color: #fff;
