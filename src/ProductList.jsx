@@ -265,9 +265,19 @@ function ProductList({ onHomeClick }) {
         dispatch(addItem(product));
         setAddedToCart((prevState) => ({
            ...prevState,
-           [product.name]: true, // Set the product name as key and value as true to indicate it's added to cart
+           [product.name]: true // Set the product name as key and value as true to indicate it's added to cart
          }));
     };
+
+    // Function that removes a product from the addedToCart state.
+    // Passed as a prop to the cart item component,
+    // which will call it during the remove item handler.
+    const handleRemoveFromCart = (product) => {
+        setAddedToCart((prevState) => ({
+            ...prevState,
+            [product.name]: false
+        }));
+    }
     
     return (
         <div>
@@ -305,14 +315,14 @@ function ProductList({ onHomeClick }) {
                             <div className="product-list">
                                 {category.plants.map((plant, plantIndex) => (
                                 <div className="product-card" key={plantIndex}>
-                                    <img className="product-image" src={plant.image} alt={plant.name} />
                                     <div className="product-title">{plant.name}</div>
+                                    <img className="product-image" src={plant.image} alt={plant.name} />
                                     <div className="product-price">{plant.cost}</div>
                                     <p>{plant.description}</p>
                                     <button
-                                        className={`product-button ${addedToCart[plant.name] ? 'added-to-cart' : ''}`} // [1]
+                                        className={`product-button ${addedToCart[plant.name] ? 'added-to-cart' : ''}`}
                                         onClick={() => handleAddToCart(plant)}
-                                        disabled={addedToCart[plant.name]}> // [1]
+                                        disabled={addedToCart[plant.name]}> {/* [1] */}
                                         Add to Cart
                                     </button>
                                 </div>
@@ -322,7 +332,7 @@ function ProductList({ onHomeClick }) {
                     ))}
                 </div>
             ) : (
-                <CartItem onContinueShopping={handleContinueShopping} />
+                <CartItem onContinueShopping={handleContinueShopping} onDelete={handleRemoveFromCart} />
             )}
         </div>
     );
