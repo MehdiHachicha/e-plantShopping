@@ -164,7 +164,7 @@ body {
 .luxury {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     width: 650px;
     font-size: 19px;
     cursor: pointer;
