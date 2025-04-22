@@ -30,21 +30,18 @@
   justify-content: center;
   height: 100vh;
   width: 100vw;
- top: 100px;
+  top: 100px;
   backdrop-filter: blur(4px);
   background-color: rgba(0,0,0,0.5);
-  gap: 20px;
+  gap: 6vw;
 }
 
 .landing_content {
- margin-top: 430px;
-  margin-left: 100px;
-  transform: translate(-50%, -50%);
   z-index: 1;
   text-align: center;
-  /* background-color: red; */
-  width: 400px;
-  height: 400px;
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 30vw;
+  height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -127,6 +124,7 @@
     margin-left: 0;
     width: 80%; /* Adjust as needed */
     text-align: center;
+    overflow: visible;
   }
 
   .aboutus_container {
@@ -139,6 +137,7 @@
   .landing_content {
     margin-top: 50px; /* Adjust as needed */
     width: 90%; /* Adjust as needed */
+    overflow: visible;
   }
 
   .aboutus_container {

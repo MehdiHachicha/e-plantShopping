@@ -233,7 +233,7 @@ function ProductList({ onHomeClick }) {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        width: '1100px',
+        width: '51vw',
     }
     const styleA = {
         color: 'white',
@@ -283,8 +283,8 @@ function ProductList({ onHomeClick }) {
         <div>
             <div className="navbar" style={styleObj}>
                 <div className="tag">
-                    <div className="luxury">
-                        <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="" />
+                    <div className="luxury" onClick={(e) => handleHomeClick(e)}>
+                        <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt=""/>
                         <a href="/" onClick={(e) => handleHomeClick(e)}>
                             <div>
                                 <h3 style={{ color: 'white' }}>Paradise Nursery</h3>
@@ -323,7 +323,7 @@ function ProductList({ onHomeClick }) {
                                         className={`product-button ${addedToCart[plant.name] ? 'added-to-cart' : ''}`}
                                         onClick={() => handleAddToCart(plant)}
                                         disabled={addedToCart[plant.name]}> {/* [1] */}
-                                        Add to Cart
+                                        {addedToCart[plant.name] ? 'Added to Cart' : 'Add to cart'}
                                     </button>
                                 </div>
                                 ))}
@@ -332,7 +332,7 @@ function ProductList({ onHomeClick }) {
                     ))}
                 </div>
             ) : (
-                <CartItem onContinueShopping={handleContinueShopping} onDelete={handleRemoveFromCart} />
+                <CartItem onContinueShopping={handleContinueShopping} onDelete={handleRemoveFromCart} numItems={totalQuantity} />
             )}
         </div>
     );
