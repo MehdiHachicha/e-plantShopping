@@ -1,9 +1,11 @@
 .about-us-container {
     width: 57vw;
+    height: 70vh;
     /* margin: 0 auto; */
     /* padding: 20px; */
     /* background-color: red; */
     text-align: justify;
+    overflow: auto; /* Allow scrolling if the paragraph overflows */
   }
   
   .about-us-heading {
